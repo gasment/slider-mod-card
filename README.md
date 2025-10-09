@@ -7,6 +7,12 @@
 ---
 ### 预览：
 ![](https://github.com/gasment/slider-mod-card/blob/main/preview.webp)
+### 安装
+hacs自动安装
+- 复制github库地址：https://github.com/gasment/slider-mod-card
+- 进入HACS，右上角进入自定义库Custom repositories，Repository库地址填写上面的github地址
+- type类型选择dashboard仪表盘，点击添加
+- 然后搜索slider-mod-card，下载安装，刷新页面
 ### 卡片配置：
 1. 卡片调用(固定)
     ```
