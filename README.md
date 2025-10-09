@@ -6,6 +6,7 @@
 #### 此项目全部功能实现代码由AI生成 Power By ChatGPT
 ---
 ### 预览：
+![](https://github.com/gasment/slider-mod-card/blob/main/preview.webp)
 ### 卡片配置：
 1. 卡片调用(固定)
     ```
