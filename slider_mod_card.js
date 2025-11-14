@@ -1,4 +1,4 @@
-// www/slider-mod-card.js
+// v 1.1.0
 class SliderModCard extends HTMLElement {
  static getConfigElement() { return null; }
  static getStubConfig() {
@@ -344,19 +344,24 @@ class SliderModCard extends HTMLElement {
  }
 
 
- _layout() {
-   const trackRect = this._trackEl.getBoundingClientRect();
-   this._trackWidth = trackRect.width;
+  _layout() {
+    // 使用未被 transform 影响的宽度（offsetWidth），
+    // 仅在为 0 时回退到 getBoundingClientRect()
+    const trackRect = this._trackEl.getBoundingClientRect();
+    const trackWidth = this._trackEl.offsetWidth || trackRect.width;
+    this._trackWidth = trackWidth;
 
-   const thumbRect = this._thumbEl.getBoundingClientRect();
-   this._thumbWidth = thumbRect.width || 40;
+    const thumbRect = this._thumbEl.getBoundingClientRect();
+    const thumbWidth = this._thumbEl.offsetWidth || thumbRect.width;
+    this._thumbWidth = thumbWidth || 40;
 
-   this._rangePx = Math.max(0, this._trackWidth - this._thumbWidth);
+    this._rangePx = Math.max(0, this._trackWidth - this._thumbWidth);
 
-   this._positionFromValue(this._currentValue ?? this._min, false);
-   this._paintBars(false);
-   if (this._isDragging) this._repositionBubblePortal();
- }
+    this._positionFromValue(this._currentValue ?? this._min, false);
+    this._paintBars(false);
+    if (this._isDragging) this._repositionBubblePortal();
+  }
+
 
  _valueToPx(value) {
    const ratio = (value - this._min) / (this._max - this._min || 1);
