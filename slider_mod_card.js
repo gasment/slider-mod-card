@@ -709,7 +709,7 @@ class SliderModCard extends HTMLElement {
  }
 }
 
-customElements.define("slider-mod-card", SliderModCard);
+//customElements.define("slider-mod-card", SliderModCard);
 
 if (!customElements.get("slider-mod-card")) {
   customElements.define("slider-mod-card", SliderModCard);
@@ -720,3 +720,4 @@ if (!customElements.get("slider-mod-card")) {
     description: "一个可自定义的滑块和滑动条卡片，可用于输入输出为数值类型的实体的同步显示与控制",
   });
 }
+
