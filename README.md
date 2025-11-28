@@ -100,6 +100,12 @@ hacs自动安装
                 - border-radius: 30px
                 - width: 245px
         ```
+   - 8.5. styles => wrap，设置wrap容器的样式，eg.
+        ```
+        styles:
+            wrap:
+                - padding: 10px
+        ```
 ### 完整配置示例
 ```
 type: custom:slider-mod-card
