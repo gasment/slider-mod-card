@@ -67,7 +67,7 @@ hacs自动安装
         data:
             temperature: value_range  #仅此处替换为变量名value_range
     ```
-8. styles，卡片元素的css样式设置，支持字段：card、tips、icon、slider
+8. styles，卡片元素的css样式设置，支持字段：card、tips、icon、slider、wrap，所有styles属性值支持js模板返回
     - 8.1. styles => card，设置最外层的容器样式，eg.
         ```
         styles:
