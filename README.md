@@ -18,13 +18,27 @@ hacs自动安装
     ```
     type: custom:slider-mod-card
     ```
-2. icon，滑块图标，支持内置mdi图标，或文件路径
+
+2. variables,配置模板变量
+   ```
+   variables:
+       example1: hello
+       example2: |
+        [[[
+            var value = states[`entity_id`].state;
+            return value
+        ]]]
+   ##variabels读取
+   state: |
+       [[[return variables.example1]]]
+   ```
+4. icon，滑块图标，支持内置mdi图标，或文件路径
     ```
     icon: /local/ui_v3/apng_webp_icon/control_card/ac/slider.svg
       #或
     icon: mdi:xxxxx
     ```
-3. name，显示文本，支持字符串，或js模板返回
+5. name，显示文本，支持字符串，或js模板返回
     ```
     show_name: true/false
     name: test
@@ -36,7 +50,7 @@ hacs自动安装
         ]]]
     
     ```
-4. sync_value，滑动条和滑块需要同步的数据，支持数值或js模板返回，注意返回值需为数值，非字符串
+6. sync_value，滑动条和滑块需要同步的数据，支持数值或js模板返回，注意返回值需为数值，非字符串
     ```
     sync_value: 999
         #或
@@ -46,18 +60,18 @@ hacs自动安装
             return value
         ]]]
     ```
-5. value_range_min/value_range_max/value_range_step，设定滑动范围的最小值、最大值、步进
+7. value_range_min/value_range_max/value_range_step，设定滑动范围的最小值、最大值、步进
     ```
     value_range_min: 0
     value_range_max: 100
     value_range_step: 1
     ```
-6. bar_left_color/bar_right_color，以滑块分界，左右进度条的颜色设置，支持js模板返回
+8. bar_left_color/bar_right_color，以滑块分界，左右进度条的颜色设置，支持js模板返回
     ```
     bar_left_color: deepskyblue
     bar_right_color: white
     ```
-7. tap_action，调用homeassistant的action实体操作服务，参考原生卡片的互动选项写法，仅做data处的变量替换即可
+9. tap_action，调用homeassistant的action实体操作服务，参考原生卡片的互动选项写法，仅做data处的变量替换即可
     ```
     tap_action:
         action: perform-action
@@ -67,8 +81,8 @@ hacs自动安装
         data:
             temperature: value_range  #仅此处替换为变量名value_range
     ```
-8. styles，卡片元素的css样式设置，支持字段：card、tips、icon、slider、wrap，所有styles属性值支持js模板返回
-    - 8.1. styles => card，设置最外层的容器样式，eg.
+10. styles，卡片元素的css样式设置，支持字段：card、tips、icon、slider、wrap，所有styles属性值支持js模板返回
+    - 9.1. styles => card，设置最外层的容器样式，eg.
         ```
         styles:
             card:
@@ -76,7 +90,7 @@ hacs自动安装
                 - box-shadow: none
                 - margin-left: 15px
         ```
-    - 8.2. styles => tips，设置滑动时出现的气泡提示样式，eg.
+    - 9.2. styles => tips，设置滑动时出现的气泡提示样式，eg.
         ```
         styles:
             tips:
@@ -85,14 +99,14 @@ hacs自动安装
                 - font-size: 22px
                 - margin-top: 20px
         ```
-    - 8.3.  styles => icon，设置滑块图标的样式，eg.
+    - 9.3.  styles => icon，设置滑块图标的样式，eg.
         ```
         styles:
             icon:
                 - height: 30px
                 - width: 30px
         ```
-    - 8.4. styles => slider，设置滑动进度条的样式，eg.
+    - 9.4. styles => slider，设置滑动进度条的样式，eg.
         ```
         styles:
             slider:
@@ -100,7 +114,7 @@ hacs自动安装
                 - border-radius: 30px
                 - width: 245px
         ```
-   - 8.5. styles => wrap，设置wrap容器的样式，eg.
+   - 9.5. styles => wrap，设置wrap容器的样式，eg.
         ```
         styles:
             wrap:
